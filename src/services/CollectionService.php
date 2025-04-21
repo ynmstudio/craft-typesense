@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author CraftPulse
  * @since 4.0.0
@@ -25,6 +26,7 @@ class CollectionService extends Component
 
     public function getCollectionByCollectionRetrieve(string $indexName): ?array
     {
+        Craft::warning('getCollectionByCollectionRetrieve() ' . $indexName, __METHOD__);
         $collections = null;
         if ($this->_verifyClient()) {
             $collections = Typesense::$plugin->getClient()->client()->collections->retrieve();
